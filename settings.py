@@ -7,20 +7,20 @@ class Settings():
         """Initialize the game's settings."""
         #Screen Settings
         self.screen_width = 1000
-        self.screen_height = 600
+        self.screen_height = 650
         self.bg_color = (30, 80, 200)
 
         #Screen Settings
         self.screen_width = 1000
-        self.screen_height = 600
+        self.screen_height = 650
         self.bg_start_color = (0, 0, 0)
 
         #Bullet Settings
         self.bullet_speed_factor = 3
         self.bullet_width = 3
         self.bullet_height = 15
-        self.bullet_color = (0, 0, 0)
-        self.bullets_allowed = 10
+        self.bullet_color = (0, 250, 0)
+        self.bullets_allowed = 5
 
         #How quickly the game speeds up
         self.speedup_scale = 1.2
@@ -35,7 +35,7 @@ class Settings():
         self.ship_speed_factor = 1.5
         self.ship_limit = 3
 
-        self.alien_speed_factor = 1
+        self.alien_speed_factor = 1.5
         self.fleet_drop_speed = 10
         self.fleet_direction = 1
 

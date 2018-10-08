@@ -15,8 +15,8 @@ class Bunker(Sprite):
         self.screen_rect = screen.get_rect()
 
         #Start each new bunker near the bottom of the screen above the ship
-        self.rect.centerx = self.screen_rect.centerx
-        self.rect.bottom = self.screen_rect.bottom
+        self.rect.center = self.screen_rect.center
+        self.rect.bottom = self.screen_rect.bottom - 70
 
         #Store the bunkers exaxt position
         self.x = float(self.rect.x)
@@ -33,3 +33,4 @@ class Bunker(Sprite):
 
     def update(self):
         self.blitme()
+
