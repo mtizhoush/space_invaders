@@ -19,6 +19,8 @@ def run_game():
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
+    pygame.mixer.music.load('sounds/background.mp3')
+    pygame.mixer.music.play(-1)
 
     #Make the play button
     play_button = Button(ai_settings, screen, "Play Game")
@@ -33,6 +35,7 @@ def run_game():
     #Make a ship, a group of bullets, a group of bunkers, and a group of aliens
     ship = Ship(ai_settings, screen)
     bullets = Group()
+    abullets = Group()
     aliens = Group()
     bunkers = Group()
 

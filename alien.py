@@ -39,7 +39,7 @@ class Alien(Sprite):
             return True
 
     def update(self):
-        if pygame.time.get_ticks() % 150 == 0:
+        if pygame.time.get_ticks() % 80 == 0:
             self.index += 1
             if self.index >= len(self.images):
                     self.index = 0
@@ -60,7 +60,11 @@ class Alien2(Sprite):
         self.type = type
 
         #Load the alien1 image and set its rect attribute
-        self.image = pygame.image.load('images/alien2.gif')
+        self.images = []
+        self.images.append(pygame.image.load('images/alien2.gif'))
+        self.images.append(pygame.image.load('images/alien22.gif'))
+        self.index = 0
+        self.image = self.images[self.index]
         self.rect = self.image.get_rect()
 
         #Start each new alien near the top left of the screen
@@ -83,6 +87,11 @@ class Alien2(Sprite):
             return True
 
     def update(self):
+        if pygame.time.get_ticks() % 80 == 0:
+            self.index += 1
+            if self.index >= len(self.images):
+                    self.index = 0
+            self.image = self.images[self.index]
         """Move the alien right of left"""
         self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
         self.rect.x = self.x
@@ -97,7 +106,11 @@ class Alien3(Sprite):
         self.type = type
 
         #Load the alien1 image and set its rect attribute
-        self.image = pygame.image.load('images/alien3.gif')
+        self.images = []
+        self.images.append(pygame.image.load('images/alien3.gif'))
+        self.images.append(pygame.image.load('images/alien33.gif'))
+        self.index = 0
+        self.image = self.images[self.index]
         self.rect = self.image.get_rect()
 
         #Start each new alien near the top left of the screen
@@ -120,6 +133,12 @@ class Alien3(Sprite):
             return True
 
     def update(self):
+        if pygame.time.get_ticks() % 80 == 0:
+            self.index += 1
+            if self.index >= len(self.images):
+                    self.index = 0
+            self.image = self.images[self.index]
+
         """Move the alien right of left"""
         self.x += (self.ai_settings.alien_speed_factor * self.ai_settings.fleet_direction)
         self.rect.x = self.x

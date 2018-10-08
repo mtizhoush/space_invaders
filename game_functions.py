@@ -23,6 +23,7 @@ def fire_bullet(ai_settings, screen, ship, bullets):
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
+        pygame.mixer.Sound.play(new_bullet.bullet_sound)
 
 def check_keyup_events(event, ship):
     if event.key == pygame.K_RIGHT:
@@ -197,7 +198,6 @@ def create_fleet(ai_settings, screen, ship, aliens):
 
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets, bunkers):
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
-    collisions2 = pygame.sprite.groupcollide(bullets, bunkers, True, False)
     if collisions:
         for aliens in collisions.values():
             for alien in aliens:
@@ -249,7 +249,9 @@ def ship_hit(ai_settings, stats, screen, sb, ship, aliens, bullets):
         ship.center_ship()
 
         #Pause
+        pygame.mixer.music.stop()
         sleep(0.5)
+
     else:
         stats.game_active = False
         pygame.mouse.set_visible(True)
